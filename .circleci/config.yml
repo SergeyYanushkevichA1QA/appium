@@ -7,4 +7,4 @@ workflows:
   maven_test:
     jobs:
       - maven/test:
-         command: 'test -Dprofile=browserstack'
+         command: '-Dprofile=browserstack -Dbrowserstack.user=browserstackuser -Dbrowserstack.key=browserstackkey'
