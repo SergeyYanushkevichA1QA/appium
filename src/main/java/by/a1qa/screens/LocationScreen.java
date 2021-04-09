@@ -5,10 +5,10 @@ import aquality.appium.mobile.screens.Screen;
 import org.openqa.selenium.By;
 
 public class LocationScreen extends Screen {
-    private final IButton selectBtn = getElementFactory().getButton(By.id("com.todaytix.TodayTix:id/secondary_button"), "Select Manually button");
+    private final IButton selectBtn = getElementFactory().getButton(By.id("secondary_button"), "Select Manually button");
 
     public LocationScreen() {
-        super(By.id("com.todaytix.TodayTix:id/icon"), "Location Screen");
+        super(By.id("icon"), "Location Screen");
     }
 
     public void clickSelectButton() {

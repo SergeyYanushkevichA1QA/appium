@@ -13,25 +13,30 @@ import java.util.List;
 public class DiscoverScreen extends Screen {
     private final String showContainer = "//android.widget.LinearLayout[@index='1']";
     private final String xpathContainer = "//android.view.ViewGroup[@content-desc='Fan Favourites The shows that our audience love']";
-    private final ILabel showsLbl = getElementFactory().getLabel(By.xpath(xpathContainer), "scroll");
-    private final ILabel headerLbl = getElementFactory().getLabel(By.id("com.todaytix.TodayTix:id/discover_header"), "Header lbl");
-    private final By posterNameLoc = By.xpath(showContainer + "//*[contains(@resource-id, 'com.todaytix.TodayTix:id/show_name')]");
-    private final By posterCostLoc = By.xpath(showContainer + "//*[contains(@resource-id, 'com.todaytix.TodayTix:id/price_amount_label')]");
+    private final ILabel showsLbl = getElementFactory().getLabel(By.xpath(xpathContainer), "Shows lbl");
+    private final ILabel header = getElementFactory().getLabel(By.id("discover_header"), "Header lbl");
+    private final By posterLoc = By.xpath(showContainer + "//*[contains(@resource-id, 'container')]");
+    private final By posterNameLoc = By.xpath(showContainer + "//*[contains(@resource-id, 'show_name')]");
+    private final By posterCostLoc = By.xpath(showContainer + "//*[contains(@resource-id, 'price_amount_label')]");
 
     public DiscoverScreen() {
         super(By.xpath("//android.widget.LinearLayout"), "Discover Page");
     }
 
     public boolean isOnDiscoverScreen() {
-        return headerLbl.state().waitForDisplayed();
-    }
-
-    private List<ILabel> getPosterNameList() {
-        return getElementFactory().findElements(posterNameLoc, ElementType.LABEL);
+        return header.state().waitForDisplayed();
     }
 
     public void swipeToShows() {
         showsLbl.getTouchActions().scrollToElement(SwipeDirection.DOWN);
+    }
+
+    private int getPosterAmount() {
+        return getElementFactory().findElements(posterLoc, ElementType.LABEL).size();
+    }
+
+    private List<ILabel> getPosterNameList() {
+        return getElementFactory().findElements(posterNameLoc, ElementType.LABEL);
     }
 
     private List<ILabel> getPosterCostList() {
@@ -40,7 +45,7 @@ public class DiscoverScreen extends Screen {
 
     public List<Show> getShows() {
         List<Show> shows = new ArrayList<>();
-        for(int i = 0; i < getPosterNameList().size(); i++) {
+        for(int i = 0; i < getPosterAmount() - 1; i++) {
             Show show = new Show(getPosterNameList().get(i).getText(), PriceParser.parsePrice(getPosterCostList().get(i).getText()));
             shows.add(show);
         }

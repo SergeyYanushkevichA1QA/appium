@@ -2,8 +2,9 @@ package by.a1qa.utils;
 
 public class TicketUtils {
     private static String regDate = "\\w{3,20}\\s\\d*";
-    private static String regTime = "(\\d*)?:(\\d*)\\s[A-Z]*";
+    private static String regTime = "(\\d*)?:(\\d*)\\s([AM]|[PM])*";
     private static String regTicket = "\\d*\\s\\w{6,7}";
+    private static String regTicketNumber = "\\d*\\s\\w{6,7}";
     private static String regPrice =".[1-9]\\d*\\.\\d*|0\\.\\d*[1-9]\\d*";
 
     public static String getDate(String data) {
@@ -12,6 +13,10 @@ public class TicketUtils {
 
     public static String getTime(String data) {
         return RegexUtils.getDataFromRegularExpression(regTime, data);
+    }
+
+    public static String getTicketsWithNumber(String data) {
+        return RegexUtils.getDataFromRegularExpression(regTicket, data);
     }
 
     public static String getTicketsNumber(String data) {

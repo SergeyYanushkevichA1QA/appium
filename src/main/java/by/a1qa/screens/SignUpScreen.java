@@ -6,8 +6,8 @@ import aquality.appium.mobile.screens.Screen;
 import org.openqa.selenium.By;
 
 public class SignUpScreen extends Screen {
-    private final IButton selectBtn = getElementFactory().getButton(By.id("com.todaytix.TodayTix:id/secondary_button"), "Select Manually button");
-    private final ILabel titleOnScreen = getElementFactory().getLabel(By.id("com.todaytix.TodayTix:id/title"), "Title");
+    private final IButton selectBtn = getElementFactory().getButton(By.id("secondary_button"), "Select Manually button");
+    private final ILabel titleOnScreen = getElementFactory().getLabel(By.id("title"), "Title");
 
     public SignUpScreen() {
         super(By.className("android.widget.LinearLayout"), "SignUp Screen");

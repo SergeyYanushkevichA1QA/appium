@@ -6,8 +6,8 @@ import aquality.appium.mobile.screens.Screen;
 import org.openqa.selenium.By;
 
 public class MainScreen extends Screen {
-    private final ILabel titleOnScreen = getElementFactory().getLabel(By.id("com.todaytix.TodayTix:id/title"), "Title");
-    private final IButton nextButton = getElementFactory().getButton(By.id("com.todaytix.TodayTix:id/next_button"), "Next Button");
+    private final ILabel titleOnScreen = getElementFactory().getLabel(By.id("title"), "Title");
+    private final IButton nextButton = getElementFactory().getButton(By.id("next_button"), "Next Button");
 
     public MainScreen() {
         super(By.id("android:id/content"), "Main Page");
