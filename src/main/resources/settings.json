@@ -2,7 +2,7 @@
   "platformName": "android",
   "isRemote": false,
   "remoteConnectionUrl": "http://0.0.0.0:4723/wd/hub",
-  "screensLocation": "by.a1qa.screens",
+  "screensLocation": "src/main/java/by/a1qa/screens",
   "driverSettings": {
     "android": {
       "deviceKey": "Android_Emulator",
