@@ -1,7 +1,19 @@
 {
+  "Pixel 3": {
+    "capabilities": {
+      "device": "Google Pixel 3",
+      "os_version": "9.0"
+    }
+  },
   "Android_Emulator": {
     "capabilities": {
       "deviceName": "Pixel_3a_API_30_x86"
+    }
+  },
+  "iPhone_XS": {
+    "capabilities": {
+      "deviceName": "iPhone XS",
+      "os_version": "14"
     }
   }
 }

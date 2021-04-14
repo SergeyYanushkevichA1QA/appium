@@ -12,7 +12,6 @@ public class BaseTest {
 
     @BeforeClass
     public void setup(){
-        System.setProperty("profile", "browserstack");
         AqualityServices.getApplication();
         AqualityServices.getLogger().info("App is opened");
     }
@@ -20,9 +19,8 @@ public class BaseTest {
     @AfterClass
     public void tearDown() {
         if (AqualityServices.isApplicationStarted())
-            AqualityServices.getApplication().getDriver().quit();
+            AqualityServices.getApplication().quit();
         AqualityServices.getLogger().info("App is closed");
-        System.clearProperty("profile");
     }
 }
 

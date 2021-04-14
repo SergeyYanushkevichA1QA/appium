@@ -1,16 +1,27 @@
 {
-  "platformName": "android",
-  "isRemote": false,
-  "remoteConnectionUrl": "http://0.0.0.0:4723/wd/hub",
+  "platformName": "ios",
+  "isRemote": true,
+  "remoteConnectionUrl": "http://hub.browserstack.com/wd/hub",
   "screensLocation": "by.a1qa.screens",
   "driverSettings": {
     "android": {
-      "deviceKey": "Android_Emulator",
-      "applicationPath": "./src/test/resources/apps/TodayTix_v2.8.3.apk",
+      "deviceKey": "Pixel 3",
       "capabilities": {
-        "platformName": "Android",
-        "automationName": "UiAutomator2",
-        "appWaitActivity": "com.todaytix.TodayTix.activity.OnboardingSlidesActivity"
+        "browserstack.key": "",
+        "browserstack.user": "",
+        "app": "bs://f2e42ad68f7576e681f0df036b60795a23b18ee5",
+        "real_mobile": true,
+        "browserstack.local": false
+      }
+    },
+    "ios": {
+      "deviceKey": "iPhone_XS",
+      "capabilities": {
+        "browserstack.key": "RTS1uijF6dyzizDZzhRe",
+        "browserstack.user": "todaytixengineer1",
+        "app": "bs://f62ad915682f4ab5e265fb14bd0c676dbea1f6de",
+        "real_mobile": true,
+        "browserstack.local": false
       }
     }
   },
