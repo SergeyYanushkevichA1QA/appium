@@ -17,8 +17,8 @@
     "ios": {
       "deviceKey": "iPhone_XS",
       "capabilities": {
-        "browserstack.key": "RTS1uijF6dyzizDZzhRe",
-        "browserstack.user": "todaytixengineer1",
+        "browserstack.user": "",
+        "browserstack.key": "",
         "app": "bs://f62ad915682f4ab5e265fb14bd0c676dbea1f6de",
         "real_mobile": true,
         "browserstack.local": false
