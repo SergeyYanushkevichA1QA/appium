@@ -9,7 +9,7 @@
       "capabilities": {
         "browserstack.key": "",
         "browserstack.user": "",
-        "app": "bs://f2e42ad68f7576e681f0df036b60795a23b18ee5",
+        "app": "bs://368cae960318257d62307cb7b6cebd7440888a75",
         "real_mobile": true,
         "browserstack.local": false
       }
