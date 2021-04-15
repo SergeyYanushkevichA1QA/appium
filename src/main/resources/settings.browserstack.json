@@ -10,6 +10,7 @@
         "browserstack.user": "",
         "browserstack.key": "",
         "app": "bs://f2e42ad68f7576e681f0df036b60795a23b18ee5",
+        
         "real_mobile": true,
         "browserstack.local": false
       }
