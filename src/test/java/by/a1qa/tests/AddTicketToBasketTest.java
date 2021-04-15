@@ -1,9 +1,13 @@
 package by.a1qa.tests;
 
-import by.a1qa.data.OnboardingScreenTitle;
+import aquality.appium.mobile.application.AqualityServices;
 import by.a1qa.models.Show;
 import by.a1qa.models.Ticket;
-import by.a1qa.screens.*;
+import by.a1qa.screens.allshows.AllShowsScreen;
+import by.a1qa.screens.discover.DiscoverScreen;
+import by.a1qa.screens.login.LogInScreen;
+import by.a1qa.screens.show.ShowScreen;
+import by.a1qa.screens.ticketdetails.TicketDetailsScreen;
 import by.a1qa.steps.TestSteps;
 import by.a1qa.utils.ListUtils;
 import by.a1qa.utils.Log;

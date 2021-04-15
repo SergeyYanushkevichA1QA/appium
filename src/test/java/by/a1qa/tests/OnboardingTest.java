@@ -1,8 +1,13 @@
 package by.a1qa.tests;
 
+import aquality.appium.mobile.application.AqualityServices;
 import by.a1qa.data.OnboardingScreenTitle;
 import by.a1qa.models.City;
-import by.a1qa.screens.*;
+import by.a1qa.screens.allshows.AllShowsScreen;
+import by.a1qa.screens.city.CityScreen;
+import by.a1qa.screens.location.LocationScreen;
+import by.a1qa.screens.onboarding.OnboardingScreen;
+import by.a1qa.screens.signup.SignUpScreen;
 import by.a1qa.utils.Log;
 import org.testng.Assert;
 import org.testng.annotations.Test;

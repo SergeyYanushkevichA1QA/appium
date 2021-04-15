@@ -1,4 +1,4 @@
-package by.a1qa.screens.main;
+package by.a1qa.screens.onboarding;
 
 import aquality.appium.mobile.elements.interfaces.IButton;
 import aquality.appium.mobile.elements.interfaces.ILabel;
