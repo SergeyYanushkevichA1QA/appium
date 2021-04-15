@@ -1,5 +1,5 @@
 {
-  "platformName": "ios",
+  "platformName": "android",
   "isRemote": true,
   "remoteConnectionUrl": "http://hub.browserstack.com/wd/hub",
   "screensLocation": "by.a1qa.screens",
