@@ -7,4 +7,4 @@ workflows:
   maven_test:
     jobs:
       - maven/test:
-         command: 'mvn test -D profile=browserstack -D driverSettings.android.capabilities.browserstack.user=$browserstackuser -D driverSettings.android.capabilities.browserstack.key=$browserstackkey'
+         command: 'test -D profile=browserstack -D driverSettings.android.capabilities.browserstack.user=$browserstackuser -D driverSettings.android.capabilities.browserstack.key=$browserstackkey'
