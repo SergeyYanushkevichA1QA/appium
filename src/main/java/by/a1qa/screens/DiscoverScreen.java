@@ -7,13 +7,16 @@ import aquality.appium.mobile.screens.Screen;
 import by.a1qa.models.Show;
 import by.a1qa.utils.PriceParser;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class DiscoverScreen extends Screen {
     private final String showContainer = "//android.widget.LinearLayout[@index='1']";
-    private final String xpathContainer = "//android.view.ViewGroup[@content-desc='Fan Favourites The shows that our audience love']";
-    private final ILabel showsLbl = getElementFactory().getLabel(By.xpath(xpathContainer), "Shows lbl");
+    private final String showLoc = "//android.view.ViewGroup[@content-desc='Fan Favourites The shows that our audience love']" +
+            "/android.widget.TextView[1]";
+    private final ILabel showsLbl = getElementFactory().getLabel(By.xpath(showLoc), "Shows lbl");
     private final ILabel header = getElementFactory().getLabel(By.id("discover_header"), "Header lbl");
     private final By posterLoc = By.xpath(showContainer + "//*[contains(@resource-id, 'container')]");
     private final By posterNameLoc = By.xpath(showContainer + "//*[contains(@resource-id, 'show_name')]");
@@ -53,7 +56,10 @@ public class DiscoverScreen extends Screen {
     }
 
     public void clickShowByName(String showName) {
-       getPosterNameList().stream()
-                .filter((s) -> s.getText().equals(showName)).findAny().get().click();
-     }
+        ILabel showLbl =  getPosterNameList().stream()
+                .filter(s -> s.getText().equals(showName))
+                .findAny()
+                .orElseThrow(() -> new NoSuchElementException(String.format("No show with name '%s' found", showName)));
+        showLbl.click();
+    }
 }

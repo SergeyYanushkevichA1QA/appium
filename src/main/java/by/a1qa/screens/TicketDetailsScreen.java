@@ -24,12 +24,6 @@ public class TicketDetailsScreen extends Screen {
 
     public void clickMostExpensiveTicket() {
         expensiveTicket.click();
-        expensiveTicket.click();
-    }
-
-    public String getHoldTimerTxt() {
-        holdTimerLbl.state().waitForDisplayed();
-        return holdTimerLbl.getText();
     }
 
     public String getPrice() {

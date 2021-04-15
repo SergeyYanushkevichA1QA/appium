@@ -1,6 +1,6 @@
 package by.a1qa.data;
 
-public class TestData {
+public class OnboardingScreenTitle {
     public static final String firstTitle = "Get tickets at a price you’ll brag about.";
     public static final String secondTitle = "Book in a few taps for today, tomorrow, or months from now.";
     public static final String thirdTitle = "Deals that seem too good to be true.";

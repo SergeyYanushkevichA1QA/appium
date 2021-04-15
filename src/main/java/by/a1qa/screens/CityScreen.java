@@ -5,6 +5,7 @@ import aquality.appium.mobile.elements.interfaces.ILabel;
 import aquality.appium.mobile.screens.Screen;
 import by.a1qa.utils.NumberUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 
 import java.util.List;
 
@@ -20,14 +21,17 @@ public class CityScreen extends Screen {
     }
 
     public String getRandomCityNameAndClick() {
-        ILabel element = getCitiesList().get(NumberUtils.getRandomNumber(getCitiesList().size()));
-        String cityName = element.getText();
-        element.click();
+        ILabel city = getCitiesList().get(NumberUtils.getRandomNumber(getCitiesList().size()));
+        String cityName = city.getText();
+        city.click();
         return cityName;
     }
 
     public void chooseCity(String cityName) {
-        getCitiesList().stream()
-                .filter(s -> s.getText().equals(cityName)).findAny().orElse(null).click();
+        ILabel cityLbl = getCitiesList().stream()
+                .filter(s -> s.getText().equals(cityName))
+                .findAny()
+                .orElseThrow(() -> new NoSuchElementException(String.format("No city with name '%s' found", cityName)));
+        cityLbl.click();
     }
 }
