@@ -14,12 +14,11 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 public class AddTicketToBasketTest extends BaseTest {
-    private static AllShowsScreen allShowsScreen = new AllShowsScreen();
-    private static DiscoverScreen discoverScreen = new DiscoverScreen();
-    private static ShowScreen showScreen = new ShowScreen();
-    private static TicketDetailsScreen ticketDetailsScreen = new TicketDetailsScreen();
-    private static LogInScreen logInScreen = new LogInScreen();
-
+    private static final AllShowsScreen allShowsScreen = AqualityServices.getScreenFactory().getScreen(AllShowsScreen.class);
+    private static final DiscoverScreen discoverScreen = AqualityServices.getScreenFactory().getScreen(DiscoverScreen.class);
+    private static final ShowScreen showScreen = AqualityServices.getScreenFactory().getScreen(ShowScreen.class);
+    private static final TicketDetailsScreen ticketDetailsScreen = AqualityServices.getScreenFactory().getScreen(TicketDetailsScreen.class);
+    private static final LogInScreen logInScreen = AqualityServices.getScreenFactory().getScreen(LogInScreen.class);
 
     @Test
     public void addTicketsToBasketTest() {

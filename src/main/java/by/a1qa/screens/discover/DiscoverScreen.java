@@ -1,4 +1,4 @@
-package by.a1qa.screens;
+package by.a1qa.screens.discover;
 
 import aquality.appium.mobile.actions.SwipeDirection;
 import aquality.appium.mobile.elements.ElementType;
@@ -12,19 +12,31 @@ import org.openqa.selenium.NoSuchElementException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DiscoverScreen extends Screen {
-    private final String showContainer = "//android.widget.LinearLayout[@index='1']";
-    private final String showLoc = "//android.view.ViewGroup[@content-desc='Fan Favourites The shows that our audience love']" +
-            "/android.widget.TextView[1]";
-    private final ILabel showsLbl = getElementFactory().getLabel(By.xpath(showLoc), "Shows lbl");
-    private final ILabel header = getElementFactory().getLabel(By.id("discover_header"), "Header lbl");
-    private final By posterLoc = By.xpath(showContainer + "//*[contains(@resource-id, 'container')]");
-    private final By posterNameLoc = By.xpath(showContainer + "//*[contains(@resource-id, 'show_name')]");
-    private final By posterCostLoc = By.xpath(showContainer + "//*[contains(@resource-id, 'price_amount_label')]");
+public abstract class DiscoverScreen extends Screen {
+    private final ILabel showsLbl;
+    private final ILabel header;
+    private final By posterLoc;
+    private final By posterNameLoc;
+    private final By posterCostLoc;
 
-    public DiscoverScreen() {
-        super(By.xpath("//android.widget.LinearLayout"), "Discover Page");
+    public DiscoverScreen(By locator) {
+        super((locator), "Discover Page");
+        showsLbl = getElementFactory().getLabel(getShowsLbl(), "Shows lbl");
+        header = getElementFactory().getLabel(getHeader(), "Header lbl");
+        posterLoc = getPosterLoc();
+        posterNameLoc = getPosterNameLoc();
+        posterCostLoc = getPosterCostLoc();
     }
+
+    protected abstract By getShowsLbl();
+
+    protected abstract By getHeader();
+
+    protected abstract By getPosterLoc();
+
+    protected abstract By getPosterNameLoc();
+
+    protected abstract By getPosterCostLoc();
 
     public boolean isOnDiscoverScreen() {
         return header.state().waitForDisplayed();
@@ -48,7 +60,7 @@ public class DiscoverScreen extends Screen {
 
     public List<Show> getShows() {
         List<Show> shows = new ArrayList<>();
-        for(int i = 0; i < getPosterAmount() - 1; i++) {
+        for(int i = 0; i < getPosterAmount(); i++) {
             Show show = new Show(getPosterNameList().get(i).getText(), PriceParser.parsePrice(getPosterCostList().get(i).getText()));
             shows.add(show);
         }
@@ -61,5 +73,5 @@ public class DiscoverScreen extends Screen {
                 .findAny()
                 .orElseThrow(() -> new NoSuchElementException(String.format("No show with name '%s' found", showName)));
         showLbl.click();
-    }
+     }
 }

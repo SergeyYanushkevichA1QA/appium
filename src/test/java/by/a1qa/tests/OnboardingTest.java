@@ -8,11 +8,11 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class OnboardingTest extends BaseTest {
-    private static OnboardingScreen onboardingScreen = new OnboardingScreen();
-    private static LocationScreen locationScreen = new LocationScreen();
-    private static SignUpScreen signUpScreen = new SignUpScreen();
-    private static CityScreen cityScreen = new CityScreen();
-    private static AllShowsScreen allShowsScreen = new AllShowsScreen();
+    private static final OnboardingScreen onboardingScreen = AqualityServices.getScreenFactory().getScreen(OnboardingScreen.class);
+    private static final LocationScreen locationScreen = AqualityServices.getScreenFactory().getScreen(LocationScreen.class);
+    private static final SignUpScreen signUpScreen = AqualityServices.getScreenFactory().getScreen(SignUpScreen.class);
+    private static final CityScreen cityScreen = AqualityServices.getScreenFactory().getScreen(CityScreen.class);
+    private static final AllShowsScreen allShowsScreen = AqualityServices.getScreenFactory().getScreen(AllShowsScreen.class);
 
     @Test
     public void onboardingTest() {

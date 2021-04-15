@@ -1,4 +1,4 @@
-package by.a1qa.screens;
+package by.a1qa.screens.city;
 
 import aquality.appium.mobile.elements.ElementType;
 import aquality.appium.mobile.elements.interfaces.ILabel;
@@ -9,12 +9,15 @@ import org.openqa.selenium.NoSuchElementException;
 
 import java.util.List;
 
-public class CityScreen extends Screen {
-    private final By citiesLoc = By.xpath("//*[contains(@resource-id, 'location_text')]");
+public abstract class CityScreen extends Screen {
+    private final By citiesLoc;
 
-    public CityScreen() {
-        super(By.className("android.widget.TextView"), "City Page");
+    public CityScreen(By locator) {
+        super(locator, "City Page");
+        citiesLoc = getCitiesLoc();
     }
+
+    protected abstract By getCitiesLoc();
 
     private List<ILabel> getCitiesList() {
         return getElementFactory().findElements(citiesLoc, ElementType.LABEL);
